@@ -2,7 +2,7 @@
 
 ;; Author: Hauke Rehfeld
 ;; Version: 0.1
-;; Package-Requires: ((emacs "24.4"))
+;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: frames, hooks
 
 ;;; Commentary:
