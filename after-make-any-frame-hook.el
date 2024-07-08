@@ -1,4 +1,4 @@
-;; after-make-any-frame-hook.el --- Run hooks after any frame is created, including the initial frame
+;; after-make-any-frame-hook.el --- Run hooks after any frame is created, including the initial frame -*- lexical-binding: t -*-
 
 ;; Author: Hauke Rehfeld
 ;; Version: 0.1
