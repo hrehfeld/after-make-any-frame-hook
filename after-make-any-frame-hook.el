@@ -23,6 +23,15 @@
 
 (defvar after-make-any-frame-hook-any-frame-hook--retry-timer-delay 0.1 "Delay until we try checking for frame focus again.")
 
+(defun after-make-any-frame-hook-add-initial-frame-hook (function)
+  "Add FUNCTION to `after-make-any-frame-hook-initial-frame-hook', if it is not already present.
+
+If `after-make-any-frame-hook-initial-frame-hook' was already run, run FUNCTION immediately."
+  (if after-make-any-frame-hook-initial-frame-done
+      (ignore-errors
+        (funcall function))
+    (add-hook 'after-make-any-frame-hook-initial-frame-hook function)))
+
 (defun after-make-any-frame-hook-run (&optional frame)
   "Run `after-make-any-frame-hook-any-frame-hook' and, if appropriate, `after-make-any-frame-hook-initial-frame-hook' for FRAME."
   (let ((focused-frame (cl-find-if (lambda (frame) (eq (frame-focus-state frame) t)) (frame-list))))
