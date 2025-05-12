@@ -40,7 +40,7 @@ If `after-make-any-frame-hook-initial-frame-hook' was already run, run FUNCTION 
         (progn
           (if after-make-any-frame-hook-initial-frame-done
               (progn
-                (message "running any frame hook %S %S %S" (selected-frame) (frame-live-p (selected-frame)) (cl-find-if (lambda (frame) (eq (frame-focus-state frame) t)) (frame-list)))
+                ;;(message "running subsequent any frame hook %S %S %S" (selected-frame) (frame-live-p (selected-frame)) (cl-find-if (lambda (frame) (eq (frame-focus-state frame) t)) (frame-list)))
                 (ignore-errors
                   (run-hooks 'after-make-any-frame-hook-any-frame-hook)))
             (message "running first any frame hook %S %S %S" (selected-frame) (frame-live-p (selected-frame)) (cl-find-if (lambda (frame) (eq (frame-focus-state frame) t)) (frame-list)))
@@ -48,7 +48,7 @@ If `after-make-any-frame-hook-initial-frame-hook' was already run, run FUNCTION 
             (ignore-errors
               (run-hooks 'after-make-any-frame-hook-initial-frame-hook))
           )
-      (message "retrying for live frame")
+      ;;(message "retrying for live frame")
       (run-with-timer after-make-any-frame-hook-any-frame-hook--retry-timer-delay nil #'after-make-any-frame-hook-run))))
 
 (defun after-make-any-frame-hook-setup ()
